@@ -2,18 +2,17 @@
 
 from random import choice
 
-
+import sys
 def open_and_read_file(file_path):
     """Take file path as string; return text as string.
 
     Takes a string that is a file path, opens the file, and turns
     the file's contents as one string of text.
     """
-
-    # your code goes here
-
-    return "Contents of your file as one long string"
-
+    contents = open('green-eggs.txt').read().split('\n')
+    new_contents = "".join(contents)
+    print(new_contents)
+    return new_contents  
 
 def make_chains(text_string):
     """Take input text as string; return dictionary of Markov chains.
