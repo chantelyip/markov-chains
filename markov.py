@@ -8,12 +8,13 @@ def open_and_read_file(file_path):
     Takes a string that is a file path, opens the file, and turns
     the file's contents as one string of text.
     """
-    contents_file = open(file_path)
-    contents_string = file_path.read().replace("\n"," ")
+    contents_file = open('green-eggs.txt')
+    contents_string = contents_file.read().replace("\n"," ")
 
     contents_file.close()
-
-    return contents_string
+    return contents_string 
+    
+print(open_and_read_file('green-eggs.txt'))
 
 
 # def make_chains(text_string):
@@ -53,7 +54,7 @@ def open_and_read_file(file_path):
 #     return chains
 
 
-# def make_text(chains):
+def make_text(chains):
 #     """Return text from chains."""
 
 #     words = []
@@ -75,3 +76,4 @@ def open_and_read_file(file_path):
 # random_text = make_text(chains)
 
 # print(random_text)
+
