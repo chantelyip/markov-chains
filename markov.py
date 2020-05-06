@@ -2,19 +2,21 @@
 
 from random import choice
 
-import sys
 def open_and_read_file(file_path):
     """Take file path as string; return text as string.
 
     Takes a string that is a file path, opens the file, and turns
     the file's contents as one string of text.
     """
-    contents = open('green-eggs.txt').read().split('\n')
-    new_contents = "".join(contents)
-    print(new_contents)
-    return new_contents  
+    contents_file = open(file_path)
+    contents_string = file_path.read().replace("\n"," ")
 
-def make_chains(text_string):
+    contents_file.close()
+
+    return contents_string
+
+
+# def make_chains(text_string):
     """Take input text as string; return dictionary of Markov chains.
 
     A chain will be a key that consists of a tuple of (word1, word2)
@@ -37,34 +39,39 @@ def make_chains(text_string):
         
         >>> chains[('there','juanita')]
         [None]
-    """
+#     """
 
-    chains = {}
+#     chains = {}
 
-    # your code goes here
+#     words = new_contents.split()
 
-    return chains
+#     for i in range(len(words) - 1):
+#         key = (words[i], words[i + 1])
+#         value = words[i + 2]
+#         print(key, value)
 
-
-def make_text(chains):
-    """Return text from chains."""
-
-    words = []
-
-    # your code goes here
-
-    return " ".join(words)
+#     return chains
 
 
-input_path = "green-eggs.txt"
+# def make_text(chains):
+#     """Return text from chains."""
 
-# Open the file and turn it into one long string
-input_text = open_and_read_file(input_path)
+#     words = []
 
-# Get a Markov chain
-chains = make_chains(input_text)
+#     # your code goes here
 
-# Produce random text
-random_text = make_text(chains)
+#     return " ".join(words)
 
-print(random_text)
+
+# input_path = "green-eggs.txt"
+
+# # Open the file and turn it into one long string
+# input_text = open_and_read_file(input_path)
+
+# # Get a Markov chain
+# chains = make_chains(input_text)
+
+# # Produce random text
+# random_text = make_text(chains)
+
+# print(random_text)
