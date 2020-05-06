@@ -9,15 +9,13 @@ def open_and_read_file(file_path):
     the file's contents as one string of text.
     """
     contents_file = open('green-eggs.txt')
-    contents_string = contents_file.read().replace("\n"," ")
+    contents_string = contents_file.read().replace('\n',' ')
 
     contents_file.close()
     return contents_string 
-    
-print(open_and_read_file('green-eggs.txt'))
 
 
-# def make_chains(text_string):
+def make_chains(text_string):
     """Take input text as string; return dictionary of Markov chains.
 
     A chain will be a key that consists of a tuple of (word1, word2)
@@ -40,40 +38,49 @@ print(open_and_read_file('green-eggs.txt'))
         
         >>> chains[('there','juanita')]
         [None]
-#     """
+    """
+    chains = {} 
+    i = 0
 
-#     chains = {}
+    words_list = text_string.split()  
 
-#     words = new_contents.split()
+    for i in range(len(words_list) - 2):  
 
-#     for i in range(len(words) - 1):
-#         key = (words[i], words[i + 1])
-#         value = words[i + 2]
-#         print(key, value)
+        key = (words_list[i], words_list[i + 1]) 
+        value = words_list[i + 2]  
+    
+        new_list = chains.get(key, [])
+        new_list.append(value)
 
-#     return chains
+        chains[key] = new_list
 
+    for key, value in chains.items():
+        print (key, value)
+
+    return chains
+# print(make_chains(open_and_read_file('text_string')))
 
 def make_text(chains):
-#     """Return text from chains."""
+    """
+    Return text from chains. Use dictionary to pick a random tuple to start with and go down
+    the row of picking 
 
-#     words = []
+    bigram_variable =
 
-#     # your code goes here
+    """
 
-#     return " ".join(words)
+    words = []
+    return " ".join(words)
 
 
-# input_path = "green-eggs.txt"
+input_path = "green-eggs.txt"
+# Open the file and turn it into one long string
+input_text = open_and_read_file(input_path)
 
-# # Open the file and turn it into one long string
-# input_text = open_and_read_file(input_path)
+# Get a Markov chain
+chains = make_chains(input_text)
 
-# # Get a Markov chain
-# chains = make_chains(input_text)
+# Produce random text
+random_text = make_text(chains)
 
-# # Produce random text
-# random_text = make_text(chains)
-
-# print(random_text)
-
+print(random_text)
